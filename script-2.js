@@ -30,11 +30,15 @@ const petsModule = (function () {
     },
   ]
   const $tbodyEl = document.querySelector('tbody')
+  const $mainImage = document.querySelector('.main-image')
   const $barkSound = document.getElementById('bark')
   const $meowSound = document.getElementById('meow')
 
   const getButtons = function () {
     return document.querySelectorAll('button')
+  }
+  const getTableRows = function () {
+    return document.querySelectorAll('tbody > tr')
   }
 
   const createPetElement = function (pet) {
@@ -63,10 +67,21 @@ const petsModule = (function () {
     }
   }
 
+  const tableRowClickHandler = function () {
+    const tableRows = getTableRows()
+    tableRows.forEach((row) => {
+      row.addEventListener('click', function () {
+        row.classList.add('selectedTableRow')
+        $mainImage.src = row.querySelector('td > img').src
+      })
+    })
+  }
+
   const playSoundFromBtns = function () {
     const buttons = getButtons()
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', function (event) {
+        event.stopPropagation()
         const soundId = this.dataset.sound
         const soundElement = document.getElementById(soundId)
         if (soundElement) {
@@ -87,6 +102,7 @@ const petsModule = (function () {
   const bindEvents = function () {
     playSoundFromBtns()
     playSoundFromKeyboard()
+    tableRowClickHandler()
   }
 
   const init = function () {

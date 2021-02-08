@@ -2,7 +2,9 @@ body {
   background: #cbedb5;
   padding-top: 25px;
 }
-
+tr {
+  cursor: pointer;
+}
 .main-image {
   max-width: 100%;
 }
@@ -10,4 +12,8 @@ body {
 .pet-image {
   width: 30px;
   height: 30px;
+}
+
+.selectedTableRow {
+  background-color: aqua;
 }
