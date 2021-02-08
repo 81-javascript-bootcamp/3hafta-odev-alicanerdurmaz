@@ -30,7 +30,8 @@ const petsModule = (function () {
     },
   ]
   const $tbodyEl = document.querySelector('tbody')
-  const $buttons = document.querySelectorAll('button')
+  const $barkSound = document.getElementById('bark')
+  const $meowSound = document.getElementById('meow')
 
   const getButtons = function () {
     return document.querySelectorAll('button')
@@ -62,7 +63,7 @@ const petsModule = (function () {
     }
   }
 
-  const bindEvents = function () {
+  const playSoundFromBtns = function () {
     const buttons = getButtons()
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', function (event) {
@@ -73,6 +74,19 @@ const petsModule = (function () {
         }
       })
     }
+  }
+
+  const playSoundFromKeyboard = function () {
+    window.addEventListener('keydown', function (event) {
+      const keyName = event.key
+      if (keyName === 'b') $barkSound.play()
+      if (keyName === 'm') $meowSound.play()
+    })
+  }
+
+  const bindEvents = function () {
+    playSoundFromBtns()
+    playSoundFromKeyboard()
   }
 
   const init = function () {
