@@ -14,6 +14,20 @@ const petsModule = (function () {
       sound: 'meow',
       soundText: 'Meow - type m',
     },
+    {
+      image: 'https://pet-uploads.adoptapet.com/7/8/d/491948394.jpg',
+      name: 'Hula',
+      type: 'German Shepherd',
+      sound: 'bark',
+      soundText: 'Bark - type b',
+    },
+    {
+      image: 'https://pet-uploads.adoptapet.com/d/a/b/408761775.jpg',
+      name: 'Sam',
+      type: 'Domestic Shorthair',
+      sound: 'meow',
+      soundText: 'Meow - type m',
+    },
   ]
   const $tbodyEl = document.querySelector('tbody')
   const $buttons = document.querySelectorAll('button')
