@@ -35,8 +35,6 @@ const petsModule = (function () {
   ]
   const $tbodyEl = document.querySelector('tbody')
   const $mainImage = document.querySelector('.main-image')
-  const $barkSound = document.getElementById('bark')
-  const $meowSound = document.getElementById('meow')
 
   const getButtons = function () {
     return document.querySelectorAll('button')
