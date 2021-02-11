@@ -1,4 +1,8 @@
 const petsModule = (function () {
+  const keyboardEvents = {
+    b: document.getElementById('bark'),
+    m: document.getElementById('meow'),
+  }
   const _data = [
     {
       image: 'https://pet-uploads.adoptapet.com/1/6/b/406528149.jpg',
@@ -93,9 +97,7 @@ const petsModule = (function () {
 
   const playSoundFromKeyboard = function () {
     window.addEventListener('keydown', function (event) {
-      const keyName = event.key
-      if (keyName === 'b') $barkSound.play()
-      if (keyName === 'm') $meowSound.play()
+      keyboardEvents[event.key].play()
     })
   }
 
