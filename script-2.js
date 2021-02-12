@@ -35,6 +35,7 @@ const petsModule = (function () {
   ]
   const $tbodyEl = document.querySelector('tbody')
   const $mainImage = document.querySelector('.main-image')
+  const mainImageURL = 'https://www.vertical-leap.uk/wp-content/uploads/2019/10/dogs-cats-1400x800.jpg'
 
   const getButtons = function () {
     return document.querySelectorAll('button')
@@ -69,10 +70,23 @@ const petsModule = (function () {
     }
   }
 
+  const deleteAllClassFromTableRows = function (tableRows) {
+    tableRows.forEach((row) => {
+      row.classList.remove('selectedTableRow')
+    })
+  }
+
   const tableRowClickHandler = function () {
     const tableRows = getTableRows()
     tableRows.forEach((row) => {
       row.addEventListener('click', function () {
+        if (row.classList.contains('selectedTableRow')) {
+          row.classList.remove('selectedTableRow')
+          $mainImage.src = mainImageURL
+          return
+        }
+
+        deleteAllClassFromTableRows(tableRows)
         row.classList.add('selectedTableRow')
         $mainImage.src = row.querySelector('td > img').src
       })
