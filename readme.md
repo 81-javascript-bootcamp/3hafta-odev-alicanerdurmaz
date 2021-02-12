@@ -4,6 +4,6 @@
 - satira tiklandiginda bgcolor ekleyelim.
 - satira tiklandiginda soldaki imajda ilgili petin imajini gosterelim.
 
-
 bonus
+
 - birkac pet daha ekleyelim.
