@@ -109,7 +109,8 @@ const petsModule = (function () {
 
   const playSoundFromKeyboard = function () {
     window.addEventListener('keydown', function (event) {
-      keyboardEvents[event.key].play()
+      const keyName = event.key
+      keyboardEvents.hasOwnProperty(keyName) && keyboardEvents[keyName].play()
     })
   }
 
